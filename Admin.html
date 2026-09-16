@@ -20,6 +20,7 @@
             --radius-lg: 10px;
             --t: 0.17s ease;
             --glow: 0 0 16px rgba(234,121,0,0.3);
+            --color-negro-oscuro: #111111;
         }
 
         @font-face {
@@ -46,6 +47,8 @@
         .icon-bikot:before, .icon-Bikot:before { content: "\e900"; }
         .app-icon-custom .icon-color-negro { color: var(--color-negro-oscuro) !important; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        .app-icon-custom { font-size: 80px; margin-right: 5px; line-height: 1; color: #000; flex-shrink: 0; }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -323,6 +326,8 @@
             background: rgba(0,0,0,0.88);
             z-index: 7000; align-items: center; justify-content: center;
             animation: fadeIn 0.14s ease;
+            overflow-y: auto;
+            padding: 20px 0;
         }
         .modal-content {
             background: var(--panel); padding: 22px;
@@ -416,7 +421,7 @@
 <body>
 
 <header class="header-bar">
-    <i class="icon-bikot"></i>
+    <i class="icon-bikot app-icon-custom icon-color-negro"></i>
     <h2>Administrador</h2>
 </header>
 
@@ -659,8 +664,13 @@
     }
 
     function confirmarManual() {
-        const nombre = document.getElementById('manualInput').value.trim();
-        if (nombre) { addTag(nombre, tempCss); closeAllModals(); }
+        const input = document.getElementById('manualInput');
+        const nombre = input.value.trim();
+        if (nombre) { 
+            addTag(nombre, tempCss); 
+            input.value = '';
+            closeAllModals(); 
+        }
     }
 
     function renderListModal(title) {
@@ -719,10 +729,14 @@
 
     function closeAllModals() {
         document.querySelectorAll('.selector-modal').forEach(m => m.style.display = 'none');
+        if (document.getElementById('editor').style.display !== 'block') {
+            document.body.style.overflow = '';
+        }
     }
 
     function abrirEditor() {
         carIndex = 0; 
+        etiquetasFinales = [];
         detectarEtiquetasExistentes();
         updatePreview();
         document.getElementById('editor').style.display = 'block';
@@ -817,7 +831,7 @@
 
         try {
             const res = await fetch(
-                'https://api.github.com/repos/Bikot/Oc.Bikotworl.com/dispatches',
+                'https://api.github.com/repos/bikot-worl/oc.bikotworl.com/dispatches',
                 {
                     method: 'POST',
                     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
