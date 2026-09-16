@@ -1,14 +1,16 @@
 name: Final
 
 on:
-  push:
-    paths:
-      - 'dibujos.json'
+  workflow_run:
+    workflows: ["generar-galeria"]
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     permissions:
       contents: write
