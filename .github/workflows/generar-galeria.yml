@@ -3,7 +3,7 @@ name: Actualizar Galeria
 on:
   push:
     paths:
-      - 'Imagenes/**'
+      - 'draws/**'
 
 jobs:
   build:
@@ -54,7 +54,7 @@ jobs:
           ext = obtener_urls(gal) | obtener_urls(pen) | obtener_urls(excluidas)
           new = []
           
-          folder = 'Imagenes'
+          folder = 'draws'
           if os.path.exists(folder):
               for r, d, files in os.walk(folder):
                   for f in files:
