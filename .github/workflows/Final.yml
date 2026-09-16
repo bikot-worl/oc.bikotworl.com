@@ -2,7 +2,7 @@ name: Final
 
 on:
   workflow_run:
-    workflows: ["generar-galeria"]
+    workflows: ["Actualizar dibujos"]
     types:
       - completed
   workflow_dispatch:
