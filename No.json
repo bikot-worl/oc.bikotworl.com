@@ -151,5 +151,35 @@
       "2026-06-06T00:26:37.889589Z"
     ],
     "status": "waiting"
+  },
+  {
+    "fileURL": [
+      "Imagenes/Astrea/new furry  .png"
+    ],
+    "description": [
+      "Nueva imagen detectada"
+    ],
+    "tags": [
+      "%Gatosauriocrack%"
+    ],
+    "timestamp": [
+      "2026-08-12T14:11:35.204904Z"
+    ],
+    "status": "waiting"
+  },
+  {
+    "fileURL": [
+      "Imagenes/Astrea/new furry.png"
+    ],
+    "description": [
+      "Nueva imagen detectada"
+    ],
+    "tags": [
+      "%Gatosauriocrack%"
+    ],
+    "timestamp": [
+      "2026-08-12T14:11:35.204914Z"
+    ],
+    "status": "waiting"
   }
 ]
