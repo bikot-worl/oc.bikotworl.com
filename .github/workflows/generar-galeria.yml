@@ -42,9 +42,9 @@ jobs:
                   furl = item.get('fileURL', [])
                   if isinstance(furl, list):
                       for u in furl:
-                          if isinstance(u, str): urls.add(u)
+                          if isinstance(u, str): urls.add(u.strip())
                   elif isinstance(furl, str):
-                      urls.add(furl)
+                      urls.add(furl.strip())
               return urls
 
           gal = leer('dibujos.json')
@@ -59,12 +59,13 @@ jobs:
               for r, d, files in os.walk(folder):
                   for f in files:
                       if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.mp4', '.webm')):
-                          p = os.path.join(r, f).replace(os.sep, '/')
+                          # Se agrega ../ al inicio de la ruta para coincidir con dibujos.json
+                          p = '../' + os.path.join(r, f).replace(os.sep, '/')
                           if p not in ext:
                               new.append({
                                   'fileURL': [p],
                                   'description': ['Nueva imagen detectada'],
-                                  'tags': ['%Gatosauriocrack%'],
+                                  'tags': ['%Bikot%'],
                                   'timestamp': [datetime.datetime.now().isoformat() + 'Z'],
                                   'status': 'waiting'
                               })
