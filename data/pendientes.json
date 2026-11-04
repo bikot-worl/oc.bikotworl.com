@@ -28,5 +28,20 @@
       "2026-10-19T17:50:32.123757Z"
     ],
     "status": "waiting"
+  },
+  {
+    "fileURL": [
+      "../gallery/Meli/117 sin título_20261104123358.png"
+    ],
+    "description": [
+      "Nueva imagen detectada"
+    ],
+    "tags": [
+      "%Bikot%"
+    ],
+    "timestamp": [
+      "2026-11-04T18:37:08.304980Z"
+    ],
+    "status": "waiting"
   }
 ]
